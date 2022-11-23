@@ -3,8 +3,8 @@ const Connection = require("./database/db");
 const dotenv = require("dotenv");
 const app = Express();
 const cors = require("cors");
-const user = require("./schema/userSechema");
 const UserRouter = require("./app/user/router");
+const SellerRouter = require("./app/seller/router");
 
 dotenv.config();
 
@@ -21,6 +21,8 @@ app.use(cors());
 app.use(Express.json());
 
 app.use("/api/user", UserRouter);
+
+app.use("/api/seller", SellerRouter);
 
 app.listen(port, () =>
   console.log(`Server is running successfully on ${port}`)
